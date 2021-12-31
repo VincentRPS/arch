@@ -56,5 +56,6 @@ async def rtfm(ctx: commands.Context):
 #######################
 
 bot.load_extension(name=".cog", package="bot")
+bot.load_extension(name=".ext.SlashCmds.cog", package="bot")
 
 bot.run(os.getenv("token"))
