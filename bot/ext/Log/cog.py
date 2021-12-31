@@ -41,7 +41,7 @@ class LogCog(commands.Cog):
         username: typing.Optional[str] = "arch",
     ):
         await self.webhook.send(content=message, username=username, avatar_url=avatar)
-        time.sleep(random.randint(1, 10))
+        time.sleep(random.randint(1))
 
     @commands.Cog.listener()
     async def on_socket_event_type(self, event_type):
