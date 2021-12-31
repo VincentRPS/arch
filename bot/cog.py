@@ -64,7 +64,7 @@ class CoreCog(commands.Cog):
         if not hasattr(
             bot, "lavalink"
         ):  # This ensures the client isn't overwritten during cog reloads.
-            self.bot.lavalink = lavalink.Client(self.bot.user.id)
+            self.bot.lavalink = lavalink.Client(self.bot.user.id())
             self.bot.lavalink.add_node(
                 "lava.link", 80, "youshallnotpass", "singapore", "default-node"
             )  # Host, Port, Password, Region, Name
