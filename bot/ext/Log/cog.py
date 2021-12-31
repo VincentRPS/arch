@@ -40,9 +40,9 @@ class LogCog(commands.Cog):
         ] = "https://cdn.discordapp.com/attachments/925935640544149585/926464382706278461/16074589.png",
         username: typing.Optional[str] = "arch",
     ):
-        await asyncio.sleep(random.randint(10, 30))
+        await asyncio.sleep(random.randint(10))
         await self.webhook.send(content=message, username=username, avatar_url=avatar)
-        time.sleep(random.randint(10, 30))
+        time.sleep(random.randint(10))
         pass
 
     @commands.Cog.listener()
