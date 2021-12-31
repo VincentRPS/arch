@@ -23,7 +23,7 @@ class LavalinkVoiceClient(disnake.VoiceClient):
         if hasattr(self.client, "lavalink"):
             self.lavalink = self.client.lavalink
         else:
-            self.client.lavalink = lavalink.Client(client.user.id)
+            self.client.lavalink = lavalink.Client(self.client.user.id)
             self.client.lavalink.add_node(  # you could want to change this.
                 "lava.link", 80, "youshallnotpass", "singapore", "default-node"
             )
