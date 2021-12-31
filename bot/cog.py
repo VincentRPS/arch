@@ -61,13 +61,8 @@ class LavalinkVoiceClient(disnake.VoiceClient):
 class CoreCog(commands.Cog):
     def __init__(self, bot): # Weird lavalink thingy?
         self.bot = bot
-        self.client: disnake.Client()
-
-        if not hasattr(
-            bot, "lavalink"
-        ):  # This ensures the client isn't overwritten during cog reloads.
-            self.client.lavalink = lavalink.Client(self.client.user.id)
-            self.client.lavalink.add_node(
+        self.bot.lavalink = lavalink.Client(self.bot.user.id)
+        self.bot.lavalink.add_node(
                 "lava.link", 80, "youshallnotpass", "singapore", "default-node"
             )  # Host, Port, Password, Region, Name
 
