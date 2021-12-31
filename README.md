@@ -1,4 +1,4 @@
 ![](_.png)
 
 # Arch
-A discord bot made for developers
+Multipurpose discord bot made in [disnake](https://github.com/DisnakeDev/Disnake)
