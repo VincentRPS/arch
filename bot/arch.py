@@ -56,5 +56,4 @@ async def rtfm(ctx: commands.Context):
 
 bot.load_extension(name=".cog", package="bot")
 
-bot.connect()
-bot.start(os.getenv("token"))
+bot.run(os.getenv("token"))
