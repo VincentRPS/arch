@@ -51,11 +51,9 @@ class LavalinkVoiceClient(disnake.VoiceClient):
         player.channel_id = None
         self.cleanup()
 
-
 #########
 ## Cog ##
 #########
-
 
 class CoreCog(commands.Cog):
     def __init__(self, bot): # Weird lavalink thingy?
