@@ -58,8 +58,8 @@ class LavalinkVoiceClient(disnake.VoiceClient):
 class CoreCog(commands.Cog):
     def __init__(self, bot): # Weird lavalink thingy?
         self.bot = bot
-        self.bot.lavalink = lavalink.Client("912311607630131210")
-        self.bot.lavalink.add_node(
+        self.lavalink = lavalink.Client("912311607630131210")
+        self.lavalink.add_node(
                 "lava.link", 80, "youshallnotpass", "singapore", "default-node"
             )  # Host, Port, Password, Region, Name
 
@@ -73,7 +73,7 @@ class CoreCog(commands.Cog):
 
     @commands.command()
     async def play(self, ctx: commands.Context, *, search: str):
-        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
+        player = self.lavalink.player_manager.get(ctx.guild.id)
         query = search.strip("<>")
 
         if not url_composer.match(query):
@@ -112,17 +112,17 @@ class CoreCog(commands.Cog):
 
     @commands.command()
     async def pause(self, ctx: commands.Context):
-        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
+        player = self.lavalink.player_manager.get(ctx.guild.id)
         await player.set_pause(True)
 
     @commands.command()
     async def unpause(self, ctx: commands.Context):
-        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
+        player = self.lavalink.player_manager.get(ctx.guild.id)
         await player.set_pause(False)
 
     @commands.command()
     async def stop(self, ctx: commands.Context):
-        player = self.bot.lavalink.player_manager.get(ctx.guild.id)
+        player = self.lavalink.player_manager.get(ctx.guild.id)
 
         if not player.is_connected:
             await ctx.reply("Not currently connected to a channel!")
