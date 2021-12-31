@@ -31,79 +31,79 @@ class LogCog(commands.Cog):
         await self.webhook.send(content=message, username=username, avatar_url=avatar)
 
 
-    @commands.Cog.listener
+    @commands.Cog.listener()
     async def on_socket_event_type(self, event_type):
         return await self.send(message=f"on_socket_event_type: {event_type}")
 
-    @commands.Cog.listener
+    @commands.Cog.listener()
     async def on_socket_raw_receive(self, msg):
         return await self.send(message=f"on_socket_raw_receive: {msg}")
 
-    @commands.Cog.listener
+    @commands.Cog.listener()
     async def on_socket_raw_send(self, payload):
         return await self.send(message=f"on_socket_raw_sen: {payload}")
 
-    @commands.Cog.listener
+    @commands.Cog.listener()
     async def on_typing(self, channel, user, when):
         return await self.send(message=f"on_typing: channel: {channel}, user: {user}, when: {when}")
 
-    @commands.Cog.listener
+    @commands.Cog.listener()
     async def on_message(self, message):
         return await self.send(message=f"on_message: {message}")
 
-    @commands.Cog.listener
+    @commands.Cog.listener()
     async def on_message_delete(self, message):
         return await self.send(message=f"on_message_delete: {message}")
 
-    @commands.Cog.listener
+    @commands.Cog.listener()
     async def on_bulk_message_delete(self, messages):
         return await self.send(message=f"on_bulk_message_delete: {messages}")
 
-    @commands.Cog.listener
+    @commands.Cog.listener()
     async def on_raw_message_delete(self, payload):
         return await self.send(message=f"on_raw_message_delete: {payload}")
 
-    @commands.Cog.listener
+    @commands.Cog.listener()
     async def on_raw_bulk_message_delete(self, payload):
         return await self.send(message=f"on_raw_bulk_message_delete: {payload}")
 
-    @commands.Cog.listener
+    @commands.Cog.listener()
     async def on_message_edit(self, before, after):
         return await self.send(message=f"on_message_edit: before: {before}, after: {after}")
 
-    @commands.Cog.listener
+    @commands.Cog.listener()
     async def on_raw_message_edit(self, payload):
         return await self.send(message=f"on_raw_message_edit: {payload}")
 
-    @commands.Cog.listener
+    @commands.Cog.listener()
     async def on_reaction_add(self, reaction, user):
         return await self.send(message=f"on_reaction_add: reaction: {reaction}, user: {user}")
 
-    @commands.Cog.listener
+    @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload):
         return await self.send(message=f"on_raw_reaction_add: {payload}")
 
-    @commands.Cog.listener
+    @commands.Cog.listener()
     async def on_reaction_remove(self, reaction, user):
         return await self.send(message=f"on_reaction_remove: reaction: {reaction}, user: {user}")
 
-    @commands.Cog.listener
+    @commands.Cog.listener()
     async def on_raw_reaction_remove(self, payload):
         return await self.send(message=f"on_raw_reaction_remove: {payload}")
 
-    @commands.Cog.listener
+    @commands.Cog.listener()
     async def on_reaction_clear(self, message, reactions):
         return await self.send(message=f"on_reaction_clear: message: {message}, reactions: {reactions}")
 
-    @commands.Cog.listener
+    @commands.Cog.listener()
     async def on_raw_reaction_clear(self, payload):
         return await self.send(message=f"on_raw_reaction_clear: {payload}")
 
-    @commands.Cog.listener
+    @commands.Cog.listener()
     async def on_reaction_clear_emoji(self, reaction):
         return await self.send(message=f"on_reaction_clear_emoji: {reaction}")
 
-    @commands.Cog.listener
+    @commands.Cog.listener()
     async def on_raw_reaction_clear_emoji(self, payload):
         return await self.send(message=f"on_raw_reaction_clear_emoji: {payload}")
     
