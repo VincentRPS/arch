@@ -6,7 +6,7 @@
 #############
 
 import asyncio
-from datetime import time
+import time
 import os
 import typing
 import aiohttp
