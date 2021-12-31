@@ -1,2 +1,2 @@
-git+https://github.com/pycord-development/pycord
+disnake
 python-dotenv
