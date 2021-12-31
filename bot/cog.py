@@ -51,17 +51,19 @@ class LavalinkVoiceClient(disnake.VoiceClient):
         player.channel_id = None
         self.cleanup()
 
+
 #########
 ## Cog ##
 #########
 
+
 class CoreCog(commands.Cog):
-    def __init__(self, bot): # Weird lavalink thingy?
+    def __init__(self, bot):  # Weird lavalink thingy?
         self.bot = bot
         self.lavalink = lavalink.Client("912311607630131210")
         self.lavalink.add_node(
-                "lava.link", 80, "youshallnotpass", "singapore", "default-node"
-            )  # Host, Port, Password, Region, Name
+            "lava.link", 80, "youshallnotpass", "singapore", "default-node"
+        )  # Host, Port, Password, Region, Name
 
     @commands.command(aliases=["doc", "docs", "rtfd"])
     async def rtfm(self, ctx: commands.Context):

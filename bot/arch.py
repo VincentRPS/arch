@@ -8,8 +8,9 @@ import disnake
 
 try:
     import uvloop
+
     uvloop.install()
-except(ImportError, ModuleNotFoundError):
+except (ImportError, ModuleNotFoundError):
     pass
 
 from disnake.ext import commands
@@ -22,7 +23,9 @@ from embeds.help import helpembed, rtfmhelp
 #############
 
 logging.basicConfig(level=logging.DEBUG)
-bot = commands.Bot(command_prefix=when_mentioned_or("ch "), intents=disnake.Intents.all())
+bot = commands.Bot(
+    command_prefix=when_mentioned_or("ch "), intents=disnake.Intents.all()
+)
 bot.remove_command("help")
 load_dotenv()
 doc_links = {
@@ -41,6 +44,7 @@ doc_links = {
 @bot.event
 async def on_ready():
     logging.info("Ready!")
+
 
 @bot.event
 async def on_command_error(error):

@@ -20,16 +20,26 @@ load_dotenv()
 ## Cog ##
 #########
 
+
 class LogCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self._session = aiohttp.ClientSession(loop=asyncio.get_event_loop())
-        self.webhook = Webhook.from_url(os.getenv("logging_webhook"), session=self._session)
+        self.webhook = Webhook.from_url(
+            os.getenv("logging_webhook"), session=self._session
+        )
 
     # an easier send function to WebHooks
-    async def send(self, message: str, avatar: typing.Optional[str] = "https://cdn.discordapp.com/attachments/925935640544149585/926464382706278461/16074589.png", username: typing.Optional[str] = "arch"):
+    async def send(
+        self,
+        message: str,
+        avatar: typing.Optional[
+            str
+        ] = "https://cdn.discordapp.com/attachments/925935640544149585/926464382706278461/16074589.png",
+        username: typing.Optional[str] = "arch",
+    ):
+        asyncio.sleep(5)
         await self.webhook.send(content=message, username=username, avatar_url=avatar)
-
 
     @commands.Cog.listener()
     async def on_socket_event_type(self, event_type):
@@ -45,7 +55,9 @@ class LogCog(commands.Cog):
 
     @commands.Cog.listener()
     async def on_typing(self, channel, user, when):
-        return await self.send(message=f"on_typing: channel: {channel}, user: {user}, when: {when}")
+        return await self.send(
+            message=f"on_typing: channel: {channel}, user: {user}, when: {when}"
+        )
 
     @commands.Cog.listener()
     async def on_message(self, message):
@@ -69,7 +81,9 @@ class LogCog(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message_edit(self, before, after):
-        return await self.send(message=f"on_message_edit: before: {before}, after: {after}")
+        return await self.send(
+            message=f"on_message_edit: before: {before}, after: {after}"
+        )
 
     @commands.Cog.listener()
     async def on_raw_message_edit(self, payload):
@@ -77,7 +91,9 @@ class LogCog(commands.Cog):
 
     @commands.Cog.listener()
     async def on_reaction_add(self, reaction, user):
-        return await self.send(message=f"on_reaction_add: reaction: {reaction}, user: {user}")
+        return await self.send(
+            message=f"on_reaction_add: reaction: {reaction}, user: {user}"
+        )
 
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload):
@@ -85,7 +101,9 @@ class LogCog(commands.Cog):
 
     @commands.Cog.listener()
     async def on_reaction_remove(self, reaction, user):
-        return await self.send(message=f"on_reaction_remove: reaction: {reaction}, user: {user}")
+        return await self.send(
+            message=f"on_reaction_remove: reaction: {reaction}, user: {user}"
+        )
 
     @commands.Cog.listener()
     async def on_raw_reaction_remove(self, payload):
@@ -93,7 +111,9 @@ class LogCog(commands.Cog):
 
     @commands.Cog.listener()
     async def on_reaction_clear(self, message, reactions):
-        return await self.send(message=f"on_reaction_clear: message: {message}, reactions: {reactions}")
+        return await self.send(
+            message=f"on_reaction_clear: message: {message}, reactions: {reactions}"
+        )
 
     @commands.Cog.listener()
     async def on_raw_reaction_clear(self, payload):
@@ -106,8 +126,9 @@ class LogCog(commands.Cog):
     @commands.Cog.listener()
     async def on_raw_reaction_clear_emoji(self, payload):
         return await self.send(message=f"on_raw_reaction_clear_emoji: {payload}")
-    
+
     # todo on_interaction on..
+
 
 def setup(bot):
     bot.add_cog(LogCog(bot))
