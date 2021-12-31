@@ -1,4 +1,5 @@
 git+https://github.com/VincentRPS/disnake/
 python-dotenv
 PyNaCl
-lavalink.py
+lavalink
+uvloop

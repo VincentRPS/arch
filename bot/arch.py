@@ -5,6 +5,12 @@
 import logging
 import os
 
+try:
+    import uvloop
+    uvloop.install()
+except(ImportError, ModuleNotFoundError):
+    pass
+
 from disnake.ext import commands
 from disnake.ext.commands.bot import when_mentioned_or
 from dotenv import load_dotenv
