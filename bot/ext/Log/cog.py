@@ -40,6 +40,8 @@ class LogCog(commands.Cog):
     ):
         asyncio.sleep(5)
         await self.webhook.send(content=message, username=username, avatar_url=avatar)
+        asyncio.sleep(5)
+        pass
 
     @commands.Cog.listener()
     async def on_socket_event_type(self, event_type):
