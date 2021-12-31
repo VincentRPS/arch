@@ -41,6 +41,11 @@ doc_links = {
 async def on_ready():
     logging.info("Ready!")
 
+@bot.event
+async def on_command_error(error):
+    channel = await bot.fetch_channel("919060781969059966")
+    channel.send(error)
+
 
 ########################
 ## Help Command Group ##
