@@ -63,8 +63,6 @@ class CoreCog(commands.Cog):
                 "lava.link", 80, "youshallnotpass", "singapore", "default-node"
             )  # Host, Port, Password, Region, Name
 
-        lavalink.add_event_hook(self.track_hook)
-
     @commands.command(aliases=["doc", "docs", "rtfd"])
     async def rtfm(self, ctx: commands.Context):
         await ctx.reply("This feature is currenly in-progress.")
@@ -72,12 +70,6 @@ class CoreCog(commands.Cog):
     ####################
     ## Music Commands ##
     ####################
-
-    async def track_hook(self, event):
-        if isinstance(event, lavalink.events.QueueEndEvent):
-            guild_id = int(event.player.guild_id)
-            guild = self.bot.get_guild(guild_id)
-            await guild.voice_client.disconnect(force=True)
 
     @commands.command()
     async def play(self, ctx: commands.Context, *, search: str):
