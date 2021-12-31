@@ -4,6 +4,7 @@
 
 import logging
 import os
+import disnake
 
 try:
     import uvloop
@@ -21,7 +22,7 @@ from embeds.help import helpembed, rtfmhelp
 #############
 
 logging.basicConfig(level=logging.DEBUG)
-bot = commands.Bot(command_prefix=when_mentioned_or("ch "))
+bot = commands.Bot(command_prefix=when_mentioned_or("ch "), intents=disnake.Intents.all())
 bot.remove_command("help")
 load_dotenv()
 doc_links = {
@@ -68,5 +69,6 @@ async def rtfm(ctx: commands.Context):
 
 bot.load_extension(name=".cog", package="bot")
 bot.load_extension(name=".ext.SlashCmds.cog", package="bot")
+bot.load_extension(name=".ext.Log.cog", package="bot")
 
 bot.run(os.getenv("token"))
