@@ -10,6 +10,7 @@ import os
 import typing
 import aiohttp
 import logging
+import random
 from disnake.ext import commands
 from disnake import Webhook
 from dotenv import load_dotenv
@@ -38,9 +39,9 @@ class LogCog(commands.Cog):
         ] = "https://cdn.discordapp.com/attachments/925935640544149585/926464382706278461/16074589.png",
         username: typing.Optional[str] = "arch",
     ):
-        asyncio.sleep(5)
+        asyncio.sleep(random.randint(1, 20))
         await self.webhook.send(content=message, username=username, avatar_url=avatar)
-        asyncio.sleep(5)
+        asyncio.sleep(random.randint(1, 10))
         pass
 
     @commands.Cog.listener()
