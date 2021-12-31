@@ -50,6 +50,7 @@ async def help(ctx: commands.Context):
 async def rtfm(ctx: commands.Context):
     await ctx.reply(embed=rtfmhelp)
 
+
 #######################
 ## Startup Functions ##
 #######################

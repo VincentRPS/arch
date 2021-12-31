@@ -4,6 +4,7 @@
 
 import disnake
 from disnake.ext import commands
+
 from ...embeds.help import helpembed, rtfmhelp
 
 #########
@@ -19,7 +20,7 @@ class CoreSlashCog(commands.Cog):
     async def help(self, inter: disnake.AppCmdInter):
         """Get help on a certain command!"""
         await inter.send(embed=helpembed)
-    
+
     @help.sub_command()
     async def rtfm(self, inter: disnake.AppCmdInter):
         """Help on the RTFM Command."""
