@@ -23,7 +23,7 @@ class LavalinkVoiceClient(disnake.VoiceClient):
         if hasattr(self.client, "lavalink"):
             self.lavalink = self.client.lavalink
         else:
-            self.client.lavalink = lavalink.Client(self.client.user.id)
+            self.client.lavalink = lavalink.Client(client.user.id)
             self.client.lavalink.add_node(  # you could want to change this.
                 "lava.link", 80, "youshallnotpass", "singapore", "default-node"
             )
@@ -59,9 +59,9 @@ class LavalinkVoiceClient(disnake.VoiceClient):
 
 
 class CoreCog(commands.Cog):
-    def __init__(self, bot, client: typing.Optional[disnake.Client] = None): # Weird lavalink thingy?
+    def __init__(self, bot): # Weird lavalink thingy?
         self.bot = bot
-        self.client = client
+        self.client: disnake.Client()
 
         if not hasattr(
             bot, "lavalink"
