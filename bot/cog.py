@@ -6,7 +6,6 @@ import re
 
 import disnake
 import lavalink
-import typing
 from disnake.ext import commands
 
 ####################
@@ -61,7 +60,7 @@ class LavalinkVoiceClient(disnake.VoiceClient):
 class CoreCog(commands.Cog):
     def __init__(self, bot): # Weird lavalink thingy?
         self.bot = bot
-        self.bot.lavalink = lavalink.Client(self.bot.user.id)
+        self.bot.lavalink = lavalink.Client("912311607630131210")
         self.bot.lavalink.add_node(
                 "lava.link", 80, "youshallnotpass", "singapore", "default-node"
             )  # Host, Port, Password, Region, Name
