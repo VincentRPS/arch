@@ -129,7 +129,7 @@ class LogCog(commands.Cog):
     async def on_raw_reaction_clear_emoji(self, payload):
         return await self.send(message=f"on_raw_reaction_clear_emoji: {payload}")
 
-    # todo on_interaction on..
+    # todo on_interaction on.. https://docs.disnake.dev/en/latest/api.html#disnake.on_interaction
 
 
 def setup(bot):
