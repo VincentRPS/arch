@@ -6,6 +6,7 @@
 #############
 
 import asyncio
+from datetime import time
 import os
 import typing
 import aiohttp
@@ -41,7 +42,7 @@ class LogCog(commands.Cog):
     ):
         await asyncio.sleep(random.randint(10, 100))
         await self.webhook.send(content=message, username=username, avatar_url=avatar)
-        await asyncio.sleep(random.randint(10, 100))
+        await time.sleep(random.randint(10, 100))
         pass
 
     @commands.Cog.listener()
