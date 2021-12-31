@@ -1,4 +1,7 @@
 from os import name
+#############
+## Imports ##
+#############
 
 import discord
 
