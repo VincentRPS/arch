@@ -6,6 +6,7 @@ import re
 
 import disnake
 import lavalink
+import typing
 from disnake.ext import commands
 
 ####################
@@ -58,7 +59,7 @@ class LavalinkVoiceClient(disnake.VoiceClient):
 
 
 class CoreCog(commands.Cog):
-    def __init__(self, bot, client: disnake.Client): # Weird lavalink thingy?
+    def __init__(self, bot, client: typing.Optional[disnake.Client] = None): # Weird lavalink thingy?
         self.bot = bot
         self.client = client
 
