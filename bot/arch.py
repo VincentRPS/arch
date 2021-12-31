@@ -16,6 +16,7 @@ from embeds.help import helpembed, rtfmhelp
 
 logging.basicConfig(level=logging.INFO)
 bot = commands.Bot(command_prefix=when_mentioned_or(os.getenv("prefix")))
+bot.remove_command("help")
 load_dotenv()
 doc_links = {
     "pyc": "https://docs.pycord.dev/en/master",
