@@ -14,7 +14,7 @@ from embeds.help import helpembed, rtfmhelp
 ## Configs ##
 #############
 
-logging.basicConfig(level=logging.info)
+logging.basicConfig(level=logging.INFO)
 bot = commands.Bot(command_prefix=when_mentioned_or(os.getenv("prefix")))
 load_dotenv()
 doc_links = {
