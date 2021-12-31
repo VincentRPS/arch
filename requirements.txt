@@ -1,2 +1,2 @@
-disnake
+git+https://github.com/VincentRPS/disnake/
 python-dotenv
