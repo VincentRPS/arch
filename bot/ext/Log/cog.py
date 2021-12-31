@@ -53,7 +53,7 @@ class LogCog(commands.Cog):
 
     @commands.Cog.listener()
     async def on_socket_raw_send(self, payload):
-        return await self.send(message=f"on_socket_raw_sen: {payload}")
+        return await self.send(message=f"on_socket_raw_send: {payload}")
 
     @commands.Cog.listener()
     async def on_typing(self, channel, user, when):
